@@ -1,0 +1,2 @@
+ docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
+
