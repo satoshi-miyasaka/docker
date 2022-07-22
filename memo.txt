@@ -1,2 +1,7 @@
- docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
+docker build . -t loto
 
+docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
+docker run -it --name loto -d loto:latest
+
+docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
+docker exec -it test-wolrd-mysql mysql -u root -p 
