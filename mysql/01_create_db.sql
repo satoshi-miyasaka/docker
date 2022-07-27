@@ -1,7 +1,5 @@
 set global local_infile = on;
 
-create database loto;
-
 create table loto.loto6 (
 number int not null,
 ball_1 int not null,
