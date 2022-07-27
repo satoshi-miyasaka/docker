@@ -6,8 +6,16 @@ docker run -it --name loto loto
 docker run -it --name loto -d loto
 docker run -it --name loto loto
 
+docker build mysql/. -t loto
+docker run -it --name loto \
+	-e MYSQL_ROOT_PASSWORD=mysql \
+	-e MYSQL_DATABASE=loto \
+	-e MYSQL_USER=loto \
+	-e MYSQL_PASSWORD=loto \
+	-d loto
+
 docker exec -it loto mysql -u root -p
-docker exec -it loto mysql -u loto_user -p
+docker exec -it loto mysql -u loto -p
 docker exec -it loto bash
 
 docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
