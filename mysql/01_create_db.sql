@@ -11,6 +11,7 @@ ball_6 int not null,
 bonus int not null,
 primary key(number)
 );
+
 create table loto7 (
 number int not null,
 ball_1 int not null,
@@ -23,3 +24,4 @@ ball_7 int not null,
 bonus int not null,
 primary key(number)
 );
+

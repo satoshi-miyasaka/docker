@@ -18,6 +18,10 @@ docker exec -it loto mysql -u root -p
 docker exec -it loto mysql -u loto -p
 docker exec -it loto bash
 
-docker run -it --name test-wolrd-mysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql:latest
+docker build python/. -t django
+docker run -it --name django \
+	-d django
+docker exec -it django bash
+
 
 git configでUser/Passを設定
