@@ -1,3 +1,6 @@
+docker network create my-network
+docker network ls
+
 docker run -it --name test -e MYSQL_ROOT_PASSWORD=mysql -d mysql
 docker exec -it test mysql -u root -p
 
@@ -8,6 +11,7 @@ docker run -it --name loto loto
 
 docker build mysql/. -t loto
 docker run -it --name loto \
+	--network my-network \
 	-e MYSQL_ROOT_PASSWORD=mysql \
 	-e MYSQL_DATABASE=loto \
 	-e MYSQL_USER=loto \
@@ -20,8 +24,12 @@ docker exec -it loto bash
 
 docker build python/. -t django
 docker run -it --name django \
+	--network my-network \
 	-d django
 docker exec -it django bash
 
+いったんバッシュでコンテナに入り,apt install default-mysql-client-coreでMysqlクライアントをインストール
+mysql -u loto -h loto -p
+でMysqlにログインして、検索できることを確認
 
 git configでUser/Passを設定
