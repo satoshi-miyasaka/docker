@@ -6,12 +6,23 @@ connection = MySQLdb.connect(
         passwd='loto',
         db='loto')
 
-cursor = connection.cursor()
+cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 
-cursor.execute("SELECT * FROM loto6")
+list = [0] * 44
+cursor.execute("SELECT * FROM loto6 order by number desc")
 rows = cursor.fetchall()
 for row in rows:
-    print ( row ) 
+    list[row['ball_1']] += 1
+    list[row['ball_2']] += 1
+    list[row['ball_3']] += 1
+    list[row['ball_4']] += 1
+    list[row['ball_5']] += 1
+    list[row['ball_6']] += 1
+    list[row['bonus']] += 1
+
+for l in list:
+    print(l)
+
 
 connection.commit()
 
