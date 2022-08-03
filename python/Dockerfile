@@ -17,4 +17,7 @@ RUN pip install --upgrade setuptools
 
 RUN python -m pip install jupyterlab
 
+RUN apt install python-dev default-libmysqlclient-dev -y
+RUN apt install python3-dev -y
+RUN pip install mysqlclient
 
