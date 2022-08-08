@@ -3,7 +3,6 @@ import csv
 
 loto6_all_cols = {
 	'number' : 0,
-	'date'   : 1,
 	'ball_1' : 2,
 	'ball_2' : 3,
 	'ball_3' : 4,
@@ -14,7 +13,6 @@ loto6_all_cols = {
 }
 
 loto6_jnb_cols = {
-	'date'   : 1,
 	'ball_1' : 3,
 	'ball_2' : 4,
 	'ball_3' : 5,
@@ -26,7 +24,6 @@ loto6_jnb_cols = {
 
 loto7_all_cols = {
 	'number' : 0,
-	'date'   : 1,
 	'ball_1' : 2,
 	'ball_2' : 3,
 	'ball_3' : 4,
@@ -39,7 +36,6 @@ loto7_all_cols = {
 }
 
 loto7_jnb_cols = {
-	'date'   : 1,
 	'ball_1' : 3,
 	'ball_2' : 4,
 	'ball_3' : 5,
