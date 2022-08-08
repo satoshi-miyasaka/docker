@@ -1,0 +1,4 @@
+https://www.mk-mode.com/rails/loto/LOTO6_ALL.csv
+https://www.mk-mode.com/rails/loto/LOTO7_ALL.csv
+https://login.paypay-bank.co.jp/lottery/co/loto6jnb.csv
+https://login.paypay-bank.co.jp/lottery/co/loto7jnb.csv
