@@ -8,8 +8,8 @@
 
 import MySQLdb
 
-n = 3
-m = 3
+n = 2
+m = 5
 l = 7
 o = 0
 
