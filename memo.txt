@@ -28,6 +28,10 @@ docker run -it --name django \
 	-d django
 docker exec -it django bash
 docker exec -it django python3 /root/test.py
+docker exec -it django python3 /root/loto_update.py
+docker cp loto6jnb.csv django:/root/
+docker cp loto7jnb.csv django:/root/
+
 
 いったんバッシュでコンテナに入り,apt install default-mysql-client-coreでMysqlクライアントをインストール
 mysql -u loto -h loto -p
