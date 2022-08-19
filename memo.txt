@@ -27,10 +27,9 @@ docker run -it --name django \
 	--network my-network \
 	-d django
 docker exec -it django bash
-docker exec -it django python3 /root/test.py
+docker exec -it django /root/data_download.sh
 docker exec -it django python3 /root/loto_update.py
-docker cp loto6jnb.csv django:/root/
-docker cp loto7jnb.csv django:/root/
+docker exec -it django python3 /root/loto6_predict.py
 
 
 いったんバッシュでコンテナに入り,apt install default-mysql-client-coreでMysqlクライアントをインストール

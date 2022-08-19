@@ -20,4 +20,6 @@ RUN python -m pip install jupyterlab
 RUN apt install python-dev default-libmysqlclient-dev -y
 RUN apt install python3-dev -y
 RUN pip install mysqlclient
-COPY test.py /root/
+COPY loto6_predict.py /root/
+COPY loto_update.py /root/
+COPY data_download.sh /root/
