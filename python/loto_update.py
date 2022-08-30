@@ -62,10 +62,10 @@ def csv_input(connection, input_file, column_dict):
 				cursor.execute("update loto6 set ball_1 = %s, ball_2 = %s, ball_3 = %s, ball_4 = %s, ball_5 = %s, ball_6 = %s, bonus = %s where number = %s", orec)
 
 connection = MySQLdb.connect(
-        host='loto',
-        user='loto',
-        passwd='loto',
-        db='loto')
+	host='loto',
+	user='loto',
+	passwd='loto',
+	db='loto')
 
 
 csv_input(connection, '/root/loto6jnb.csv', loto6_jnb_cols)
