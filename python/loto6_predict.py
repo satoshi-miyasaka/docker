@@ -9,8 +9,8 @@
 import MySQLdb
 
 n = 2
-m = 5
-l = 7
+m = 4
+l = 6
 o = 0
 
 connection = MySQLdb.connect(

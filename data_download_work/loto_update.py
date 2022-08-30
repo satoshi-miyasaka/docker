@@ -21,7 +21,7 @@ loto6_jnb_cols = {
 	'ball_4' : 6,
 	'ball_5' : 7,
 	'ball_6' : 8,
-	'ball_b' : 9
+	'bonus' : 9
 }
 
 loto7_jnb_cols = {
@@ -32,11 +32,11 @@ loto7_jnb_cols = {
 	'ball_5' : 7,
 	'ball_6' : 8,
 	'ball_7' : 9,
-	'ball_b1': 10,
-	'ball_b2': 11
+	'bonus1' : 10,
+	'bonus2' : 11
 }
 
-def csv_input(connection, input_file, column_dict):
+def csv_input(connection, input_file, column_dict, table_name):
 	cursor = connection.cursor()
 	c = 0
 	with open(input_file, encoding='sjis') as i:
@@ -48,18 +48,26 @@ def csv_input(connection, input_file, column_dict):
 				continue
 
 			number = row[0].replace('第', '').replace('回', '')
+			iv = []
+			uv = []
 			for key in column_dict:
+				iv.append('%s')
+				uv.append(key + ' = %s')
 				orec.append(str(int(row[column_dict[key]])))
 
-			cursor.execute("SELECT count(1) FROM loto6 where number = '" + str(number) + "'")
+			cursor.execute("SELECT count(1) FROM " + table_name + " where number = '" + str(number) + "'")
 			rows = cursor.fetchall()
 
+
+			sql = ''
 			if 0 == rows[0][0]:
 				orec.insert(0, str(int(number)))
-				cursor.execute("INSERT loto6 values(%s, %s, %s, %s, %s, %s, %s)", orec)
+				iv.append('%s')
+				sql = "INSERT " + table_name + " values(" + ", ".join(iv) + ")"
 			else:
 				orec.append(str(int(number)))
-				cursor.execute("update loto6 set ball_1 = %s, ball_2 = %s, ball_3 = %s, ball_4 = %s, ball_5 = %s, ball_6 = %s, bonus = %s where number = %s", orec)
+				sql = "UPDATE " + table_name + " set " + ", ".join(uv) + " where number = %s"
+			cursor.execute(sql, orec)
 
 connection = MySQLdb.connect(
         host='loto',
@@ -67,9 +75,8 @@ connection = MySQLdb.connect(
         passwd='loto',
         db='loto')
 
-
-csv_input(connection, '/root/loto6jnb.csv', loto6_jnb_cols)
-#csv_input(connection, 'loto7jnb.csv', loto7_jnb_cols)
+csv_input(connection, '/root/loto6jnb.csv', loto6_jnb_cols, 'loto6')
+# csv_input(connection, '/root/loto7jnb.csv', loto7_jnb_cols, 'loto7')
 
 connection.commit()
 
