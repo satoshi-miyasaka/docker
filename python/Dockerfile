@@ -20,6 +20,12 @@ RUN python -m pip install jupyterlab
 RUN apt install python-dev default-libmysqlclient-dev -y
 RUN apt install python3-dev -y
 RUN pip install mysqlclient
+RUN pip install yahoo_finance_api2
+RUN pip install pandas
+
 COPY loto6_predict.py /root/
+COPY loto7_predict.py /root/
 COPY loto_update.py /root/
 COPY data_download.sh /root/
+
+COPY yahoo_finance2.py /root/

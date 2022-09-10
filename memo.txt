@@ -32,6 +32,9 @@ docker exec -it django python3 /root/loto_update.py
 docker exec -it django python3 /root/loto6_predict.py
 docker exec -it django python3 /root/loto7_predict.py
 
+docker exec -it django python3 /root/yahoo_finance.py
+docker exec -it django python3 /root/yahoo_finance2.py
+
 
 いったんバッシュでコンテナに入り,apt install default-mysql-client-coreでMysqlクライアントをインストール
 mysql -u loto -h loto -p
