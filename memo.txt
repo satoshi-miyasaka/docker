@@ -41,3 +41,4 @@ mysql -u loto -h loto -p
 でMysqlにログインして、検索できることを確認
 
 git configでUser/Passを設定
+

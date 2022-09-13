@@ -1,4 +1,5 @@
 import sys
+import pandas as pd
 from yahoo_finance_api2 import share
 from yahoo_finance_api2.exceptions import YahooFinanceError
 
@@ -28,6 +29,7 @@ def kabuka():
 	return company_code, df_base
 
 if __name__ == '__main__':
+
 	result = kabuka()
 	print(str(result[0]), result[1].shape)
 
