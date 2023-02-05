@@ -1,5 +1,6 @@
 import os
 import sys
+import itertools
 
 # function area
 
@@ -26,10 +27,25 @@ def allAttackList(list, max):
 
     return ret
 
+def allAttackList2(argList, maxCount):
+
+    # 最大数ならディープコピーしてリターン
+    if maxCount == len(argList): return [[i for i in argList]]
+
+    ret = []
+    for a in itertools.product(argList, repeat = len(argList) - maxCount):
+        if len(a) == len(set(a)): continue
+
+        work = []
+        for i in argList:
+            if 0 == a.count(i): work.append(i)
+        ret.append(work)
+
+    return sorted(ret)
+
 # main area
 
 if __name__ == '__main__':
-    test = [0, 1, 2, 3, 4, 5, 6]
-
-    print(allAttackList(test, 4))
+    test = list(range(7))
+    print(allAttackList2(test, 7))
 
