@@ -1,3 +1,6 @@
+# For Docker service start
+sudo /etc/init.d/docker start
+
 docker network create my-network
 docker network ls
 
@@ -34,6 +37,9 @@ docker exec -it django python3 /root/loto7_predict.py
 
 docker exec -it django python3 /root/yahoo_finance.py
 docker exec -it django python3 /root/yahoo_finance2.py
+
+docker build selenium/. -t selenium
+
 
 
 いったんバッシュでコンテナに入り,apt install default-mysql-client-coreでMysqlクライアントをインストール

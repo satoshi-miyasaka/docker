@@ -1,13 +1,11 @@
-
-code = 3323
-S_year = 5
-S_day = 1
+import sys
+from yahoo_finance_api2 import share
+from yahoo_finance_api2.exceptions import YahooFinanceError
 
 def kabuka():
-	import sys
-	import pandas as pd
-	from yahoo_finance_api2 import share
-	from yahoo_finance_api2.exceptions import YahooFinanceError
+	code = 3323
+	S_year = 5
+	S_day = 1
 
 	company_code = str(code) + '.T'
 	my_share = share.Share(company_code)
