@@ -3,37 +3,32 @@ import sys
 
 # function area
 
-def allAttackList(args):
+def allAttackList(list, max):
+    work = []
     ret = []
-    lastNumber = args.pop()
-    ret.append(args)
 
-    for i in range(len(args)):
+    if max == len(list):
+        for i in list: work.append(i)
+        ret.append(work)
+        return ret
+
+    for i in sorted(list, reverse=True):
         temp = []
-        for j in args:
-            if i == args.index(j):
-                temp.append(lastNumber)
-            else:
-                temp.append(j)
+        for j in list: temp.append(j)
+        temp.remove(i)
+        work += allAttackList(temp, max)
 
-        ret.append(sorted(temp))
+    # 重複削除
+    for l in work:
+        if 0 == ret.count(l):
+            ret.append(l)
 
-    return sorted(ret)
-
-def setList(baseList, addList):
-    if 0 == baseList.count(addList):
-        baseList.append(addList)
+    return ret
 
 # main area
 
 if __name__ == '__main__':
-    test = [0, 1, 2, 3]
-    ret = []
+    test = [0, 1, 2, 3, 4, 5, 6]
 
-    for work in allAttackList(test):
-        for temp in allAttackList(work):
-            setList(ret, temp)
-
-    print(len(ret))
-    print(sorted(ret))
+    print(allAttackList(test, 4))
 
