@@ -1,3 +1,5 @@
+CREATE USER 'loto'@'%';
+GRANT ALL PRIVILEGES ON * . * TO 'loto'@'%';
 set global local_infile = on;
 
 create table loto6 (
